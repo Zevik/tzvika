@@ -1,5 +1,16 @@
 import { useState } from 'react';
+import { FaPaperPlane } from 'react-icons/fa';
+import type { IconType } from 'react-icons';
 import { socialLinks } from '../../data';
+
+interface ContactIconProps {
+  Icon: IconType;
+  className?: string;
+}
+
+const ContactIcon = ({ Icon, className = '' }: ContactIconProps) => (
+  <Icon className={className} />
+);
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
@@ -32,16 +43,15 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20">
+    <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+        <h2 className="text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white">
           צור קשר
         </h2>
-
         <div className="max-w-2xl mx-auto">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium mb-2">
+              <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 שם מלא
               </label>
               <input
@@ -51,12 +61,11 @@ export const Contact = () => {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-color focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"
               />
             </div>
-
             <div>
-              <label htmlFor="email" className="block text-sm font-medium mb-2">
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 דוא"ל
               </label>
               <input
@@ -66,12 +75,11 @@ export const Contact = () => {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-color focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"
               />
             </div>
-
             <div>
-              <label htmlFor="message" className="block text-sm font-medium mb-2">
+              <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 הודעה
               </label>
               <textarea
@@ -81,17 +89,19 @@ export const Contact = () => {
                 onChange={handleChange}
                 required
                 rows={4}
-                className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-color focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"
               />
             </div>
-
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="w-full bg-primary-color hover:bg-primary-color-dark text-white font-medium py-2 px-4 rounded-lg transition-colors disabled:opacity-50"
-            >
-              {isSubmitting ? 'שולח...' : 'שלח הודעה'}
-            </button>
+            <div className="text-center">
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:bg-blue-500 dark:hover:bg-blue-600"
+              >
+                <span>{isSubmitting ? 'שולח...' : 'שלח הודעה'}</span>
+                <ContactIcon Icon={FaPaperPlane} className="mr-2 rtl:ml-2 rtl:mr-0 h-5 w-5" />
+              </button>
+            </div>
 
             {submitStatus === 'success' && (
               <p className="text-green-600 text-center">ההודעה נשלחה בהצלחה!</p>

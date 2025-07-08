@@ -2,25 +2,32 @@ import { Project, Service, SocialLink, NavLink } from '../types';
 import { FaLinkedin, FaGithub, FaEnvelope, FaLightbulb, FaChartLine, FaUsers } from 'react-icons/fa';
 import type { IconType } from 'react-icons';
 
-export interface NavLink {
-  id: number;
-  title: string;
-  href: string;
-}
-
-export const navLinks: NavLink[] = [
-  { id: 1, title: 'ראשי', href: '#home' },
-  { id: 2, title: 'שירותים', href: '#services' },
-  { id: 3, title: 'פרויקטים', href: '#projects' },
-  { id: 4, title: 'צור קשר', href: '#contact' }
-];
-
 export interface Service {
   id: string;
   title: string;
   description: string;
   icon: IconType;
 }
+
+export interface SocialLink {
+  id: string;
+  platform: string;
+  url: string;
+  icon: IconType;
+}
+
+export interface NavLink {
+  id: string;
+  title: string;
+  href: string;
+}
+
+export const navLinks: NavLink[] = [
+  { id: 'home', title: 'ראשי', href: '#home' },
+  { id: 'services', title: 'שירותים', href: '#services' },
+  { id: 'projects', title: 'פרויקטים', href: '#projects' },
+  { id: 'contact', title: 'צור קשר', href: '#contact' }
+];
 
 export const services: Service[] = [
   {
@@ -42,13 +49,6 @@ export const services: Service[] = [
     icon: FaUsers
   }
 ];
-
-export interface SocialLink {
-  id: string;
-  platform: string;
-  url: string;
-  icon: IconType;
-}
 
 export const socialLinks: SocialLink[] = [
   {
