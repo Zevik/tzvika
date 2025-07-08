@@ -1,5 +1,4 @@
 import { socialLinks } from '../../data';
-import { cn } from '../../utils';
 
 export const Hero = () => {
   return (
@@ -19,25 +18,21 @@ export const Hero = () => {
             צביקה אבנרי
           </h1>
 
-          <h2 className="text-xl md:text-2xl text-accent-color mb-8">
-            יזם סדרתי ויועץ אסטרטגי
+          <h2 className="text-xl md:text-2xl text-text-muted mb-8">
+            יועץ אסטרטגי ומלווה סטארטאפים
           </h2>
 
-          <blockquote className="max-w-2xl mx-auto mb-12 text-lg">
-            מוביל חברות וסטארטאפים לצמיחה והצלחה דרך חשיבה אסטרטגית וניסיון עשיר בעולם היזמות
-          </blockquote>
-
-          <div className="flex justify-center gap-6">
-            {socialLinks.map(({ id, url, platform, icon: Icon }) => (
+          <div className="flex justify-center space-x-6 space-x-reverse">
+            {socialLinks.map(({ id, platform, url, icon: Icon }) => (
               <a
                 key={id}
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="social-link"
+                className="text-text-muted hover:text-primary-color transition-colors"
                 aria-label={platform}
               >
-                <Icon className="w-6 h-6" />
+                <Icon className="w-8 h-8" />
               </a>
             ))}
           </div>

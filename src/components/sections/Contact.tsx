@@ -38,96 +38,87 @@ export const Contact = () => {
           צור קשר
         </h2>
 
-        <form onSubmit={handleSubmit} className="max-w-2xl mx-auto">
-          <div className="mb-6">
-            <label htmlFor="name" className="block text-sm font-medium mb-2">
-              שם מלא
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              className="form-input w-full"
+        <div className="max-w-2xl mx-auto">
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div>
+              <label htmlFor="name" className="block text-sm font-medium mb-2">
+                שם מלא
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-color focus:border-transparent"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium mb-2">
+                דוא"ל
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-color focus:border-transparent"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="message" className="block text-sm font-medium mb-2">
+                הודעה
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                required
+                rows={4}
+                className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-color focus:border-transparent"
+              />
+            </div>
+
+            <button
+              type="submit"
               disabled={isSubmitting}
-            />
-          </div>
+              className="w-full bg-primary-color hover:bg-primary-color-dark text-white font-medium py-2 px-4 rounded-lg transition-colors disabled:opacity-50"
+            >
+              {isSubmitting ? 'שולח...' : 'שלח הודעה'}
+            </button>
 
-          <div className="mb-6">
-            <label htmlFor="email" className="block text-sm font-medium mb-2">
-              דואר אלקטרוני
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className="form-input w-full"
-              disabled={isSubmitting}
-            />
-          </div>
+            {submitStatus === 'success' && (
+              <p className="text-green-600 text-center">ההודעה נשלחה בהצלחה!</p>
+            )}
+            {submitStatus === 'error' && (
+              <p className="text-red-600 text-center">אירעה שגיאה בשליחת ההודעה. נסה שוב מאוחר יותר.</p>
+            )}
+          </form>
 
-          <div className="mb-6">
-            <label htmlFor="message" className="block text-sm font-medium mb-2">
-              הודעה
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              required
-              rows={5}
-              className="form-textarea w-full"
-              disabled={isSubmitting}
-            />
-          </div>
-
-          <button
-            type="submit"
-            className={`
-              w-full py-3 px-6 rounded-lg font-medium
-              transition-all duration-300
-              ${isSubmitting ? 'bg-gray-400 cursor-not-allowed' : 'bg-primary-color hover:bg-accent-color'}
-              text-white
-            `}
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? 'שולח...' : 'שלח הודעה'}
-          </button>
-
-          {submitStatus === 'success' && (
-            <p className="mt-4 text-success-color text-center">
-              ההודעה נשלחה בהצלחה!
-            </p>
-          )}
-
-          {submitStatus === 'error' && (
-            <p className="mt-4 text-error-color text-center">
-              אירעה שגיאה בשליחת ההודעה. אנא נסה שוב.
-            </p>
-          )}
-        </form>
-
-        <div className="social-links mt-16">
-          <p className="text-center mb-6">או צור קשר באמצעות:</p>
-          <div className="flex justify-center space-x-6 space-x-reverse">
-            {socialLinks.map(({ id, platform, url, icon: Icon }) => (
-              <a
-                key={id}
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="social-link hover:text-primary-color transition-colors"
-                aria-label={platform}
-              >
-                <Icon className="w-8 h-8" />
-              </a>
-            ))}
+          <div className="mt-12">
+            <h3 className="text-xl font-bold text-center mb-6">
+              או צור קשר באמצעות
+            </h3>
+            <div className="flex justify-center space-x-6 space-x-reverse">
+              {socialLinks.map(({ id, platform, url, icon: Icon }) => (
+                <a
+                  key={id}
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-text-muted hover:text-primary-color transition-colors"
+                  aria-label={platform}
+                >
+                  <Icon className="w-8 h-8" />
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </div>

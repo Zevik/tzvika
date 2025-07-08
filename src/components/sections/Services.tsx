@@ -10,7 +10,7 @@ export const Services = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map(({ id, title, description, icon: Icon }) => (
-            <div key={id} className="card">
+            <div key={id} className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg">
               <div className="mb-6">
                 <Icon className="w-12 h-12 text-primary-color" />
               </div>

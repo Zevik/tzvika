@@ -2,11 +2,17 @@ import { Project, Service, SocialLink, NavLink } from '../types';
 import { FaLinkedin, FaGithub, FaEnvelope, FaLightbulb, FaChartLine, FaUsers } from 'react-icons/fa';
 import type { IconType } from 'react-icons';
 
+export interface NavLink {
+  id: number;
+  title: string;
+  href: string;
+}
+
 export const navLinks: NavLink[] = [
   { id: 1, title: 'ראשי', href: '#home' },
   { id: 2, title: 'שירותים', href: '#services' },
   { id: 3, title: 'פרויקטים', href: '#projects' },
-  { id: 4, title: 'צור קשר', href: '#contact' },
+  { id: 4, title: 'צור קשר', href: '#contact' }
 ];
 
 export interface Service {
