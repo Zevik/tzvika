@@ -1,4 +1,5 @@
 import { socialLinks } from '../../data';
+import { cn } from '../../utils';
 
 export const Hero = () => {
   return (
@@ -9,11 +10,9 @@ export const Hero = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center">
           <div className="profile-pic-container mb-8">
-            <img
-              src="/images/profile.jpg"
-              alt="צביקה אבנרי"
-              className="profile-pic mx-auto"
-            />
+            <div className="w-40 h-40 bg-gradient-primary rounded-full mx-auto flex items-center justify-center text-4xl text-white">
+              צ"א
+            </div>
           </div>
 
           <h1 className="text-4xl md:text-6xl font-bold mb-4">
@@ -28,17 +27,17 @@ export const Hero = () => {
             מוביל חברות וסטארטאפים לצמיחה והצלחה דרך חשיבה אסטרטגית וניסיון עשיר בעולם היזמות
           </blockquote>
 
-          <div className="flex justify-center space-x-6 space-x-reverse">
-            {socialLinks.map(link => (
+          <div className="flex justify-center gap-6">
+            {socialLinks.map(({ id, url, platform, icon: Icon }) => (
               <a
-                key={link.id}
-                href={link.url}
+                key={id}
+                href={url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-link"
-                aria-label={link.platform}
+                aria-label={platform}
               >
-                <i className={`icon-${link.icon}`} />
+                <Icon className="w-6 h-6" />
               </a>
             ))}
           </div>

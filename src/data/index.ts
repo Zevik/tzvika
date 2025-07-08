@@ -1,4 +1,6 @@
 import { Project, Service, SocialLink, NavLink } from '../types';
+import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
+import type { IconType } from 'react-icons';
 
 export const navLinks: NavLink[] = [
   { id: 1, title: 'ראשי', href: '#home' },
@@ -28,24 +30,31 @@ export const services: Service[] = [
   }
 ];
 
+export interface SocialLink {
+  id: string;
+  platform: string;
+  url: string;
+  icon: IconType;
+}
+
 export const socialLinks: SocialLink[] = [
   {
-    id: 1,
+    id: 'linkedin',
     platform: 'LinkedIn',
-    url: 'https://linkedin.com/in/zvika-avneri',
-    icon: 'linkedin'
+    url: 'https://www.linkedin.com/in/your-profile',
+    icon: FaLinkedin
   },
   {
-    id: 2,
-    platform: 'Twitter',
-    url: 'https://twitter.com/zvika_avneri',
-    icon: 'twitter'
+    id: 'github',
+    platform: 'GitHub',
+    url: 'https://github.com/your-username',
+    icon: FaGithub
   },
   {
-    id: 3,
+    id: 'email',
     platform: 'Email',
-    url: 'mailto:contact@zvika.com',
-    icon: 'email'
+    url: 'mailto:your.email@example.com',
+    icon: FaEnvelope
   }
 ];
 
