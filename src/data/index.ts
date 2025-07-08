@@ -1,5 +1,5 @@
 import { Project, Service, SocialLink, NavLink } from '../types';
-import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaEnvelope, FaLightbulb, FaChartLine, FaUsers } from 'react-icons/fa';
 import type { IconType } from 'react-icons';
 
 export const navLinks: NavLink[] = [
@@ -9,24 +9,31 @@ export const navLinks: NavLink[] = [
   { id: 4, title: 'צור קשר', href: '#contact' },
 ];
 
+export interface Service {
+  id: string;
+  title: string;
+  description: string;
+  icon: IconType;
+}
+
 export const services: Service[] = [
   {
-    id: 1,
+    id: 'strategy',
     title: 'ייעוץ אסטרטגי',
-    description: 'ליווי חברות וסטארטאפים בתהליכי צמיחה ופיתוח עסקי',
-    icon: 'strategy'
+    description: 'פיתוח אסטרטגיות צמיחה והתאמת מודלים עסקיים לשוק המשתנה',
+    icon: FaChartLine
   },
   {
-    id: 2,
-    title: 'פיתוח מוצר',
-    description: 'הובלת תהליכי פיתוח מוצר מרעיון ועד השקה',
-    icon: 'product'
+    id: 'startup',
+    title: 'ליווי סטארטאפים',
+    description: 'הנחייה וליווי מקצועי לסטארטאפים בשלבים שונים של התפתחות',
+    icon: FaLightbulb
   },
   {
-    id: 3,
-    title: 'גיוס משקיעים',
-    description: 'סיוע בגיוס הון וחיבור למשקיעים פוטנציאליים',
-    icon: 'investment'
+    id: 'management',
+    title: 'פיתוח מנהלים',
+    description: 'הכשרה והדרכת מנהלים לניהול אפקטיבי ומנהיגות משפיעה',
+    icon: FaUsers
   }
 ];
 

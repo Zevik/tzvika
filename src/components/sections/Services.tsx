@@ -9,18 +9,18 @@ export const Services = () => {
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map(service => (
-            <div key={service.id} className="card">
+          {services.map(({ id, title, description, icon: Icon }) => (
+            <div key={id} className="card">
               <div className="mb-6">
-                <i className={`icon-${service.icon} text-4xl text-primary-color`} />
+                <Icon className="w-12 h-12 text-primary-color" />
               </div>
               
               <h3 className="text-xl font-bold mb-4">
-                {service.title}
+                {title}
               </h3>
               
-              <p className="text-gray-600 dark:text-gray-300">
-                {service.description}
+              <p className="text-text-muted">
+                {description}
               </p>
             </div>
           ))}

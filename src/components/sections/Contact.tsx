@@ -116,16 +116,16 @@ export const Contact = () => {
         <div className="social-links mt-16">
           <p className="text-center mb-6">או צור קשר באמצעות:</p>
           <div className="flex justify-center space-x-6 space-x-reverse">
-            {socialLinks.map(link => (
+            {socialLinks.map(({ id, platform, url, icon: Icon }) => (
               <a
-                key={link.id}
-                href={link.url}
+                key={id}
+                href={url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="social-link"
-                aria-label={link.platform}
+                className="social-link hover:text-primary-color transition-colors"
+                aria-label={platform}
               >
-                <i className={`icon-${link.icon}`} />
+                <Icon className="w-8 h-8" />
               </a>
             ))}
           </div>
